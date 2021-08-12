@@ -21,6 +21,10 @@ public interface customerDAO {
     @Delete
     void delete(customer customer);
 
+//    @Query("UPDATE cust_table SET balance = amount WHERE cust_id = id")
+//    void updateBal(int id, int amount);
+
+
     @Query("DELETE FROM cust_table")
     void deleteAllCustomer();
 

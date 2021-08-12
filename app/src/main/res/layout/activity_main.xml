@@ -22,20 +22,3 @@
             android:layout_margin="32dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-<!--<Button-->
-<!--android:id="@+id/addCustButton"-->
-<!--android:layout_width="180dp"-->
-<!--android:layout_gravity="center"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginTop="30dp"-->
-<!--android:text="add customer" />-->
-
-<!--<Button-->
-<!--android:id="@+id/deleteCustButton"-->
-<!--android:layout_width="180dp"-->
-<!--android:layout_marginTop="4dp"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_gravity="center"-->
-<!--android:text="delete customer" />-->

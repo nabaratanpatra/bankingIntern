@@ -34,6 +34,7 @@ public class Operations extends AppCompatActivity {
         editTextEmail.setText(customer.getEmail());
         editTextBal.setText(String.valueOf(customer.getBalance()));
 
+        setTitle("perform operations");
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
     }
 
@@ -74,5 +75,11 @@ public class Operations extends AppCompatActivity {
             finish();
         }
 
+    }
+
+    public void transferBtn(View view) {
+        Intent i = new Intent(this, TransferToActivity.class);
+        i.putExtra("OBJECTs", customer);
+        startActivity(i);
     }
 }

@@ -3,6 +3,7 @@ package com.example.models;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -20,14 +21,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.models.CustomerAdapter.onItemClickedListener;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private CustomerViewModel customerViewModel;
     public static final int ADD_CUSTOMER_REQ = 1;
-    public static final int DELETE_CUSTOMER_REQ = 2;
-    public static final int UPDATE_CUSTOMER_REQ = 3;
+
 
 
     @Override
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         final CustomerAdapter customerAdapter = new CustomerAdapter();
-//        customerAdapter1 = customerAdapter;     //Coppying adpater to use outside of this method. adapter1 is initialized globally
         recyclerView.setAdapter(customerAdapter);
 
 //        customerViewModel = new CustomerViewModel(getApplication());
@@ -88,19 +88,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "cant be updated (default int passed)", Toast.LENGTH_SHORT).show();
                 return;
             } else {
-//                String cust_name = i.getStringExtra(AddCustomerActivity.EXTRA_NAME);
-//                String cust_email = i.getStringExtra(AddCustomerActivity.EXTRA_EMAIL);
-//                String cust_bal = i.getStringExtra(AddCustomerActivity.EXTRA_BALANCE);
-//                customer1.setCust_id(cust_id);      //same id as previous one to overwrite changes
-
-
                 Toast.makeText(this, "name: " + customer1.getName() + " id: " + customer1.getCust_id(), Toast.LENGTH_SHORT).show();
                 customerViewModel.update(customer1);
-//                Toast.makeText(this, "Updated!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Updated!", Toast.LENGTH_SHORT).show();
 
             }
         } else {
-            Toast.makeText(this, "no intents received", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "no intents received", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -150,5 +144,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "onBackCAlled", Toast.LENGTH_SHORT).show();
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
 }
