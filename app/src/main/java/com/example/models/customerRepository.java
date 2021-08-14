@@ -44,7 +44,7 @@ public class customerRepository {
     private static class insertAsync extends AsyncTask<customer, Void, Void>{
         customerDAO customerDAO;
 
-        public insertAsync(customerDAO customerDAO){
+        public insertAsync(customerDAO customerDAO){        //because class is static we need constructor to pass DAO object. to further access .insert()
             this.customerDAO = customerDAO;
         }
 

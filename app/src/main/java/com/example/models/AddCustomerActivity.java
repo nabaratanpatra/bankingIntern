@@ -29,7 +29,7 @@ public class AddCustomerActivity extends AppCompatActivity {
         editTextBalance = findViewById(R.id.editTextBalance);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add note");
+        setTitle("Add customer");
     }
 
     private void saveCust() {

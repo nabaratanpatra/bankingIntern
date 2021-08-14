@@ -30,12 +30,11 @@ public class MainActivity extends AppCompatActivity {
     public static final int ADD_CUSTOMER_REQ = 1;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("definetly not scam");
+        setTitle("Banking app");
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); //takes care of displaying the items below each other
@@ -139,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 customerViewModel.deleteAllCustomer();
                 return true;
 
+            case R.id.allTransBtn:
+                Intent i = new Intent(this, AllTransActivity.class);
+                startActivity(i);
             default:
                 return super.onOptionsItemSelected(item);
         }

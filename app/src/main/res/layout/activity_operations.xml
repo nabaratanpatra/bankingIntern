@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/deleteCustBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="26dp"
@@ -42,7 +42,7 @@
 
     <Button
         android:id="@+id/saveCustBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
@@ -50,7 +50,7 @@
         android:text="save changes" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"

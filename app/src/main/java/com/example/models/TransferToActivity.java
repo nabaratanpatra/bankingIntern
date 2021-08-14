@@ -6,21 +6,29 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.List;
 
 public class TransferToActivity extends AppCompatActivity {
     private CustomerViewModel customerViewModel;
+    private TransViewModel transViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer_to);
+
+        setTitle("Select receiver");
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view_receiver);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); //takes care of displaying the items below each other
@@ -37,6 +45,8 @@ public class TransferToActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
         customerAdapter.setOnItemClickListener(new CustomerAdapter.onItemClickedListener() {
@@ -56,16 +66,17 @@ public class TransferToActivity extends AppCompatActivity {
 
                 if(customer1.getCust_id() == customer2.getCust_id()){
                     Toast.makeText(TransferToActivity.this, "cannot transfer to same bank Account!", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
-                int amount  = Integer.parseInt(strAmt);
+                final int amount  = Integer.parseInt(strAmt);
                 if(amount > customer1.getBalance()){
                     Toast.makeText(TransferToActivity.this, "Insufficient balance", Toast.LENGTH_LONG).show();
                     return;
                 }else{
-                    customer customer3 = new customer(customer1.getName(), customer1.getEmail(), customer1.getBalance()-amount);
+                    final customer customer3 = new customer(customer1.getName(), customer1.getEmail(), customer1.getBalance()-amount);
                     customer3.setCust_id(customer1.getCust_id());
-                    customer customer4 = new customer(customer2.getName(), customer2.getEmail(), customer2.getBalance()+amount);
+                    final customer customer4 = new customer(customer2.getName(), customer2.getEmail(), customer2.getBalance()+amount);
                     customer4.setCust_id(customer2.getCust_id());
 
                     Toast.makeText(TransferToActivity.this, "3 and 4 "+customer3.getBalance()+" "+customer4.getBalance(), Toast.LENGTH_LONG).show();
@@ -73,8 +84,20 @@ public class TransferToActivity extends AppCompatActivity {
                     customerViewModel.update(customer3);
                     customerViewModel.update(customer4);
 
-                    //TODO: add to transactions table
-//                    schema: trans_id sender receiver amount
+
+                    Thread t1 = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            transViewModel = ViewModelProviders.of(TransferToActivity.this).get(TransViewModel.class);
+                            transViewModel.insert(new Transactions(customer3.getName(), customer4.getName(), amount));
+                            Log.d("TAGGGGED", "trans inserted");
+                        }
+                    });
+                    t1.start();
+
+
+
+
 
                     Intent intent = new Intent(TransferToActivity.this, MainActivity.class);
                     Toast.makeText(TransferToActivity.this, "Transation successful!", Toast.LENGTH_SHORT).show();
