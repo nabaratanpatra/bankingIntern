@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.TransactionsPack;
 
 import androidx.room.Entity;
 import androidx.room.Insert;
@@ -19,7 +19,7 @@ public class Transactions  {
 
     private int amount;
 
-    Transactions(String c1, String c2, int amount) {
+    public Transactions(String c1, String c2, int amount) {
         this.c1 = c1;
         this.c2 = c2;
         this.amount = amount;

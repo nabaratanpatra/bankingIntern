@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.CustomersPack;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -19,7 +19,7 @@ public class customer implements Serializable {
 
 
     //constructors (except id, it will be auto-generated)
-    customer(String name, String email, int balance){
+    public customer(String name, String email, int balance){
         this.name = name;
         this.email = email;
         this.balance = balance;

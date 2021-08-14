@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.CustomersPack;
 
 import android.app.Application;
 import android.os.AsyncTask;

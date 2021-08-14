@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".AddCustomerActivity">
+    tools:context=".Activities.AddCustomerActivity">
 
     <EditText
         android:layout_marginTop="8dp"

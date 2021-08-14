@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.CustomersPack;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

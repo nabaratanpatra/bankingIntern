@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -6,15 +6,18 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import com.example.models.Adapters.CustomerAdapter;
+import com.example.models.CustomersPack.CustomerViewModel;
+import com.example.models.R;
+import com.example.models.TransactionsPack.TransViewModel;
+import com.example.models.TransactionsPack.Transactions;
+import com.example.models.CustomersPack.customer;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.models.R;
 
 public class AddCustomerActivity extends AppCompatActivity {
     private EditText editTextName, editTextEmail, editTextBalance;

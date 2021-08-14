@@ -1,9 +1,7 @@
-package com.example.models;
+package com.example.models.Activities;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -12,16 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.models.CustomerAdapter.onItemClickedListener;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.example.models.Adapters.CustomerAdapter;
+import com.example.models.Adapters.CustomerAdapter.onItemClickedListener;
+import com.example.models.CustomersPack.CustomerViewModel;
+import com.example.models.R;
+import com.example.models.CustomersPack.customer;
 
 import java.util.List;
 

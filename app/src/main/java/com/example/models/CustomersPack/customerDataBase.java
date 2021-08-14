@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.CustomersPack;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,10 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
-import java.security.PrivilegedAction;
 
 
 @Database(entities = customer.class, version = 1, exportSchema = false)       //VERSION DETERMINES SCHEMA VERSION. can ignore as we reinstall app if schema altered

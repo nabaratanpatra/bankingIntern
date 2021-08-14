@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.TransactionsPack;
 
 import android.app.Application;
 

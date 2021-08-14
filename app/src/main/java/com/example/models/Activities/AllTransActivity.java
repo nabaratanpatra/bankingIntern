@@ -1,14 +1,15 @@
-package com.example.models;
+package com.example.models.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import java.util.List;
+import com.example.models.R;
+import com.example.models.Adapters.TransAdapter;
+import com.example.models.TransactionsPack.TransViewModel;
 
 public class AllTransActivity extends AppCompatActivity {
     private TransViewModel transViewModel;

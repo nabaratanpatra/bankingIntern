@@ -1,4 +1,4 @@
-package com.example.models;
+package com.example.models.TransactionsPack;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,10 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@TypeConverters(Converter.class)
+
 @Database(entities = Transactions.class, version = 1, exportSchema = false)
 public abstract class TransDataBase extends RoomDatabase {
 
